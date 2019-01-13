@@ -9,4 +9,5 @@ public class TestModel {
     @ElegantID
     private String id;
 
+    private int someNumericValue;
 }
