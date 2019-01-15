@@ -1,14 +1,11 @@
 package io.isik.elegantsql;
 
 import io.isik.elegantsql.annotations.ElegantTable;
+import io.isik.elegantsql.processor.FoundElegantTable;
+import io.isik.elegantsql.query.CreateTableQuery;
 import org.reflections.Reflections;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
-
-import static org.reflections.ReflectionUtils.*;
 
 public class ElegantSQL {
 
@@ -21,8 +18,8 @@ public class ElegantSQL {
 
         Set<Class<?>> annotated = reflections.getTypesAnnotatedWith(ElegantTable.class);
         annotated.forEach(elegantTableClass -> {
-            List<Field> allFields = Arrays.asList(elegantTableClass.getDeclaredFields());
-            allFields.forEach(field -> System.out.println(field.getType().getCanonicalName()));
+            FoundElegantTable foundElegantTable = new FoundElegantTable(elegantTableClass);
+            new CreateTableQuery(foundElegantTable);
         });
     }
 

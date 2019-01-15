@@ -4,7 +4,7 @@ import io.isik.elegantsql.annotations.ElegantID;
 import io.isik.elegantsql.annotations.ElegantTable;
 
 @ElegantTable
-public class TestModel {
+public class TestModel extends Elegant {
 
     @ElegantID
     private String id;
