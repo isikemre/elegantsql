@@ -14,6 +14,9 @@ public class CreateTableQuery {
     public CreateTableQuery(FoundElegantTable elegantTable) {
         Set<Field> allFields = elegantTable.getAllFields();
         allFields.forEach(System.out::println);
+
+        this.tableName = elegantTable.getTableName();
+
     }
 
 
